@@ -11,7 +11,7 @@ public class Projet {
         this.name = name;
     }
 
-    private void addTask(String description) {
+    public void addTask(String description) {
         tasks.add(new Task(description));
     }
 }

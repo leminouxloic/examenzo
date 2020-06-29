@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream.forEach;
+import java.util.iterator;
 
 public final class TaskList implements Runnable {
     private static final String QUIT = "quit";
@@ -91,9 +91,10 @@ public final class TaskList implements Runnable {
             addProject(subcommandRest[1]);
         } else if (subcommand.equals("task")) {
             String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTask(this, projectTask[0], projectTask[1]);
-            for(Projet prj : projets){
-
+            for(Projet projet : projets){
+                if(projet.name == projectTask[0]){
+                    projet.addTask(projectTask[1]);
+                }
             }
         }
     }
