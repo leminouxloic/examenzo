@@ -29,9 +29,10 @@ public class Projet {
     }
 
     public String toString() {
-        out.println(project.getKey());
-        for (Task task : project.getValue()) {
-            out.printf(task.toString());
+        String result = this.name;
+        result = result + "%n";
+        for (Task task : this.tasks) {
+            result = result + task.toString();
         }
         out.println();
     }
