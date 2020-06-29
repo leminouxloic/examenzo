@@ -18,6 +18,8 @@ public final class TaskList implements Runnable {
 
     private long lastId = 0;
 
+    public List<Projet> projets = new ArrayList<>();
+
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out);
@@ -93,7 +95,7 @@ public final class TaskList implements Runnable {
     }
 
     private void addProject(String name) {
-        tasks.put(name, new ArrayList<Task>());
+        projets.add(new Projet(name));
     }
 
 
