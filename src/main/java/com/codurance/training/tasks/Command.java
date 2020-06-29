@@ -12,11 +12,17 @@ public class Command {
         out.println();
     }
 
-    private static void show(List<Projet> projets) {
+    public static void show(List<Projet> projets) {
         for (Projet projet : projets) {
             out.println(projet.toString());
-
-
         }
+    }
+
+    public static void check(List<Projet> projets, String idString) {
+        Projet.setDone(projets, idString, true);
+    }
+
+    public static void uncheck(List<Projet> projets, String idString) {
+        Projet.setDone(projets, idString, false);
     }
 }

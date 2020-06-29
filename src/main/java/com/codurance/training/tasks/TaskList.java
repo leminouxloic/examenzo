@@ -60,10 +60,10 @@ public final class TaskList implements Runnable {
                 add(commandRest[1]);
                 break;
             case "check":
-                check(commandRest[1]);
+                Command.check(projets, commandRest[1]);
                 break;
             case "uncheck":
-                uncheck(commandRest[1]);
+                Command.uncheck(projets, commandRest[1]);
                 break;
             case "help":
                 Command.help();
@@ -94,16 +94,6 @@ public final class TaskList implements Runnable {
     private void addProject(String name) {
         projets.add(new Projet(name));
     }
-
-    private void check(String idString) {
-        Projet.setDone(projets, idString, true);
-    }
-
-    private void uncheck(String idString) {
-        Projet.setDone(projets, idString, false);
-    }
-
-
 
     private void error(String command) {
         out.printf("I don't know what the command \"%s\" is.", command);

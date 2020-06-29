@@ -34,6 +34,6 @@ public class Projet {
         for (Task task : this.tasks) {
             result = result + task.toString();
         }
-        out.println();
+        return result;
     }
 }
