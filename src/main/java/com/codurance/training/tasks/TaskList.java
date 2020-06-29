@@ -54,7 +54,7 @@ public final class TaskList implements Runnable {
         String command = commandRest[0];
         switch (command) {
             case "show":
-                show();
+                Command.show(projets);
                 break;
             case "add":
                 add(commandRest[1]);
@@ -66,7 +66,7 @@ public final class TaskList implements Runnable {
                 uncheck(commandRest[1]);
                 break;
             case "help":
-                help();
+                Command.help();
                 break;
             default:
                 error(command);
@@ -74,15 +74,7 @@ public final class TaskList implements Runnable {
         }
     }
 
-    private void show() {
-        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-            out.println(project.getKey());
-            for (Task task : project.getValue()) {
-                out.printf(task.toString());
-            }
-            out.println();
-        }
-    }
+
 
     private void add(String commandLine) {
         String[] subcommandRest = commandLine.split(" ", 2);

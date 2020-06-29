@@ -11,4 +11,12 @@ public class Command {
         out.println("  uncheck <task ID>");
         out.println();
     }
+
+    private static void show(List<Projet> projets) {
+        for (Projet projet : projets) {
+            out.println(projet.toString());
+
+
+        }
+    }
 }
