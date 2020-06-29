@@ -104,14 +104,12 @@ public final class TaskList implements Runnable {
     }
 
     private void check(String idString) {
-        setDone(idString, true);
+        Projet.setDone(projets, idString, true);
     }
 
     private void uncheck(String idString) {
-        setDone(idString, false);
+        Projet.setDone(projets, idString, false);
     }
-
-
 
     private void help() {
         out.println("Commands:");
