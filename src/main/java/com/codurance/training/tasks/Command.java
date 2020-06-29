@@ -1,5 +1,15 @@
 package com.codurance.training.tasks;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Iterator;
+
 public class Command {
 
     public static void help() {
@@ -39,10 +49,14 @@ public class Command {
         } else if (subcommand.equals("task")) {
             String[] projectTask = subcommandRest[1].split(" ", 2);
             for(Projet projet : projets){
-                if(projet.name == projectTask[0]){
-                    projet.addTask(projectTask[1]);
-                }
+                checkName(projectTask, projet);
             }
+        }
+    }
+
+    private static void checkName(String[] projectTask, Projet projet) {
+        if(projet.name == projectTask[0]){
+            projet.addTask(projectTask[1]);
         }
     }
 
