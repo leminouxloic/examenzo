@@ -27,4 +27,12 @@ public class Projet {
         out.printf("Could not find a task with an ID of %d.", id);
         out.println();
     }
+
+    public String toString() {
+        out.println(project.getKey());
+        for (Task task : project.getValue()) {
+            out.printf(task.toString());
+        }
+        out.println();
+    }
 }
