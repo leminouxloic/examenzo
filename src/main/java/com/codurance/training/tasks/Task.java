@@ -26,4 +26,9 @@ public final class Task {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    public String toString(){
+        String etat = this.isDone() ? "x" : " ";
+        return "    ["+etat+"] "+this.getId()+": "+this.getDescription()+"%n";
+    }
 }
