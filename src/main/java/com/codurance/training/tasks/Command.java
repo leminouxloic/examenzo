@@ -45,4 +45,29 @@ public class Command {
             }
         }
     }
+
+    public static void execute(List<Projet> projets, String commandLine) {
+        String[] commandRest = commandLine.split(" ", 2);
+        String command = commandRest[0];
+        switch (command) {
+            case "show":
+                Command.show(projets);
+                break;
+            case "add":
+                Command.add(commandRest[1]);
+                break;
+            case "check":
+                Command.check(projets, commandRest[1]);
+                break;
+            case "uncheck":
+                Command.uncheck(projets, commandRest[1]);
+                break;
+            case "help":
+                Command.help();
+                break;
+            default:
+                Command.error(command);
+                break;
+        }
+    }
 }
