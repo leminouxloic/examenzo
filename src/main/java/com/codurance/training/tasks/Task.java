@@ -4,9 +4,10 @@ public final class Task {
     private final long id;
     private final String description;
     private boolean done;
+    private static int taskId;
 
-    public Task(long id, String description, boolean done) {
-        this.id = id;
+    public Task(String description, boolean done) {
+        this.id = nextTaskId();
         this.description = description;
         this.done = done;
     }
@@ -30,5 +31,9 @@ public final class Task {
     public String toString(){
         String etat = this.isDone() ? "x" : " ";
         return "    ["+etat+"] "+this.getId()+": "+this.getDescription()+"%n";
+    }
+
+    public static long nextTaskId(){
+        return ++taskId;
     }
 }
