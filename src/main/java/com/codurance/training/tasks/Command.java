@@ -25,4 +25,9 @@ public class Command {
     public static void uncheck(List<Projet> projets, String idString) {
         Projet.setDone(projets, idString, false);
     }
+
+    public static void error(String command) {
+        out.printf("I don't know what the command \"%s\" is.", command);
+        out.println();
+    }
 }

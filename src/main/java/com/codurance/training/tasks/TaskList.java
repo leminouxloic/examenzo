@@ -69,12 +69,10 @@ public final class TaskList implements Runnable {
                 Command.help();
                 break;
             default:
-                error(command);
+                Command.error(command);
                 break;
         }
     }
-
-
 
     private void add(String commandLine) {
         String[] subcommandRest = commandLine.split(" ", 2);
@@ -93,11 +91,6 @@ public final class TaskList implements Runnable {
 
     private void addProject(String name) {
         projets.add(new Projet(name));
-    }
-
-    private void error(String command) {
-        out.printf("I don't know what the command \"%s\" is.", command);
-        out.println();
     }
 
 }
