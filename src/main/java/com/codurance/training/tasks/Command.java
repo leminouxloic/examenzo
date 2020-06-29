@@ -30,4 +30,19 @@ public class Command {
         out.printf("I don't know what the command \"%s\" is.", command);
         out.println();
     }
+
+    public static void add(String commandLine) {
+        String[] subcommandRest = commandLine.split(" ", 2);
+        String subcommand = subcommandRest[0];
+        if (subcommand.equals("project")) {
+            projets.add(new Projet(subcommandRest[1]));
+        } else if (subcommand.equals("task")) {
+            String[] projectTask = subcommandRest[1].split(" ", 2);
+            for(Projet projet : projets){
+                if(projet.name == projectTask[0]){
+                    projet.addTask(projectTask[1]);
+                }
+            }
+        }
+    }
 }
