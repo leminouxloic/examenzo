@@ -4,7 +4,7 @@ public final class Task {
 
     public static final boolean DONE = true;
     public static final boolean NOT_DONE = false;
-    
+
     private final long id;
     private final String description;
     private boolean done;
@@ -13,7 +13,7 @@ public final class Task {
     public Task(String description) {
         this.id = nextTaskId();
         this.description = description;
-        this.done = false;
+        this.done = NOT_DONE;
     }
 
     public long getId() {
