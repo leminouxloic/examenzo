@@ -1,15 +1,19 @@
 package com.codurance.training.tasks;
 
 public final class Task {
+
+    public static final boolean DONE = true;
+    public static final boolean NOT_DONE = false;
+    
     private final long id;
     private final String description;
     private boolean done;
     private static int taskId;
 
-    public Task(String description, boolean done) {
+    public Task(String description) {
         this.id = nextTaskId();
         this.description = description;
-        this.done = done;
+        this.done = false;
     }
 
     public long getId() {
