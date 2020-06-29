@@ -78,7 +78,7 @@ public final class TaskList implements Runnable {
         String[] subcommandRest = commandLine.split(" ", 2);
         String subcommand = subcommandRest[0];
         if (subcommand.equals("project")) {
-            addProject(subcommandRest[1]);
+            projets.add(new Projet(subcommandRest[1]));
         } else if (subcommand.equals("task")) {
             String[] projectTask = subcommandRest[1].split(" ", 2);
             for(Projet projet : projets){
@@ -87,10 +87,6 @@ public final class TaskList implements Runnable {
                 }
             }
         }
-    }
-
-    private void addProject(String name) {
-        projets.add(new Projet(name));
     }
 
 }
